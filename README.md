@@ -39,11 +39,11 @@ Implicitly-restarted Lanczos methods for fast truncated singular value decomposi
 
 # Compare with:
     irlba(A, 3, scale=col_scale)$d
-## [1] 1.820227 1.622988 1.067185
+                [1] 1.820227 1.622988 1.067185
 
 # Compare with:
     svd(sweep(A, 2, col_scale, FUN=`/`))$d[1:3]
-## [1] 1.820227 1.622988 1.067185
+                [1] 1.820227 1.622988 1.067185
 
 # ------------------ new way ----------------------------------------------
     setClass("scaled_matrix", contains="matrix", slots=c(scale="numeric"))
@@ -52,7 +52,7 @@ Implicitly-restarted Lanczos methods for fast truncated singular value decomposi
     a <- new("scaled_matrix", A, scale=col_scale)
 
     irlba(a, 3)$d
-## [1] 1.820227 1.622988 1.067185
+                [1] 1.820227 1.622988 1.067185
 
 We have learned that using R's existing S4 system is simpler, easier, and more flexible than using custom arguments with idiosyncratic syntax and behavior. We've even used the new approach to implement distributed parallel matrix products for very large problems with amazingly little code.
 Wishlist / help wanted...    
